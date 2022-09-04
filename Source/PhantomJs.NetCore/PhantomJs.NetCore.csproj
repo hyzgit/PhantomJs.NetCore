@@ -11,7 +11,7 @@
     <PackageTags>c# netcore pdf html</PackageTags>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <PackageVersion>1.0.1</PackageVersion>
-    <AssemblyVersion>1.0.1</AssemblyVersion>
+    <AssemblyVersion>1.0.2</AssemblyVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
@@ -20,10 +20,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="..\..\Resources\linux64_phantomjs.zip" Link="Resources\linux64_phantomjs.zip" />
-    <EmbeddedResource Include="..\..\Resources\osx_phantomjs.zip" Link="Resources\osx_phantomjs.zip" />
-    <EmbeddedResource Include="..\..\Resources\windows_phantomjs.zip" Link="Resources\windows_phantomjs.zip" />
-    <EmbeddedResource Include="..\..\Resources\rasterize.zip" Link="Resources\rasterize.zip" />
+    <EmbeddedResource Include="Resources\common.zip" />
+    <EmbeddedResource Include="Resources\linux64_hyj_html2img.zip" />
+    <EmbeddedResource Include="Resources\osx_hyj_html2img.zip" />
+    <EmbeddedResource Include="Resources\windows_hyj_html2img.zip" />
   </ItemGroup>
 
   <ItemGroup>
@@ -31,6 +31,13 @@
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
 
 </Project>

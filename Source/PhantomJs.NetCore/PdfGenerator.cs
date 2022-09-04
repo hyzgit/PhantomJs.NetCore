@@ -83,15 +83,35 @@ namespace PhantomJs.NetCore
       proc.WaitForExit();
     }
 
-    private string ExecutePhantomJs(string phantomJsExeToUse, string inputFileName, string outputFolder, PdfGeneratorParams param)
+        /// <summary>
+        /// 根据图片的路径解析成图片资源
+        /// </summary>
+        /// <param name="filePath"></param>
+        /// <returns></returns>
+        public static string FileToBase64(string filePath)
+        {
+            byte[] byteArray = null;
+            if (File.Exists(filePath))
+                byteArray = File.ReadAllBytes(filePath);
+            string pic = Convert.ToBase64String(byteArray);
+            return pic;
+        }
+
+        private string ExecutePhantomJs(string phantomJsExeToUse, string inputFileName, string outputFolder, PdfGeneratorParams param)
     {
       if (param == null) param = new PdfGeneratorParams();
 
       var layout = param.PageWidth > 0 && param.PageHeight > 0
         ? $"{param.PageWidth}{param.DimensionUnit.GetValue()}*{param.PageHeight}{param.DimensionUnit.GetValue()}"
         : param.Format.ToString();
-      var outputFileName = Path.GetFileNameWithoutExtension(inputFileName);
-      var outputFilePath = Path.Combine(outputFolder, $"{outputFileName}.pdf");
+      string ftype ;
+
+      if (param.Fileformat == FileFormat.Pdf) ftype = ".pdf";
+      else if (param.Fileformat == FileFormat.Jpeg) ftype = ".jpg";
+      else { ftype = ".png"; }
+      
+      var outputFileName = inputFileName + ftype;//".png" ; //Path.GetFileNameWithoutExtension(inputFileName);
+      var outputFilePath = Path.Combine(outputFolder, $"{outputFileName}");
       var exePath = Path.Combine(PhantomRootFolder, phantomJsExeToUse);
 
       if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux)
@@ -111,6 +131,18 @@ namespace PhantomJs.NetCore
       var proc = new Process { StartInfo = startInfo };
       proc.Start();
       proc.WaitForExit();
+
+            if (File.Exists(outputFilePath) == false)
+            {
+                return (string.Empty);
+            }
+
+            if ( param.ConvertBase64 )
+            {
+                string fBase64 = FileToBase64(outputFilePath);
+                File.Delete(outputFilePath);
+                outputFilePath = fBase64;
+            }
 
       return outputFilePath;
     }

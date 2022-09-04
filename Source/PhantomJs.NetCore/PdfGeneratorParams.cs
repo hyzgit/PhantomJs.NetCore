@@ -17,25 +17,33 @@ namespace PhantomJs.NetCore
     /// </summary>
     public int PageHeight { get; set; }
 
-    /// <summary>
-    ///   Describe de DimensionUnit of the parameters Widht and Height.
-    /// </summary>
-    public DimensionUnits DimensionUnit { get; set; }
+        /// <summary>
+        /// File format
+        /// </summary>
+        public FileFormat Fileformat { get; set; } = FileFormat.Png;
+        /// <summary>
+        ///   Describe de DimensionUnit of the parameters Widht and Height.
+        /// </summary>
+        public DimensionUnits DimensionUnit { get; set; } = DimensionUnits.Pixel;
 
-    /// <summary>
-    ///   Format of the document available in generator.
-    /// </summary>
-    public Formats Format { get; set; } = Formats.A4;
+        /// <summary>
+        /// Convert to Base64 string
+        /// </summary>
+        public bool ConvertBase64 { get; set; } = false;
+        /// <summary>
+        ///   Format of the document available in generator.
+        /// </summary>
+        public Formats Format { get; set; } = Formats.A4;
 
-    /// <summary>
-    ///   Orientation which the document will be generated.
-    /// </summary>
-    public Orientations Orientation { get; set; } = Orientations.Portrait;
+        /// <summary>
+        ///   Orientation which the document will be generated.
+        /// </summary>
+        public Orientations Orientation { get; set; } = Orientations.Portrait;
 
-    /// <summary>
-    ///   Define the scaling factor for the document. The default option
-    ///   <c>1</c> represents 100%.
-    /// </summary>
-    public double ZoomFactor { get; set; } = 1d;
+        /// <summary>
+        ///   Define the scaling factor for the document. The default option
+        ///   <c>1</c> represents 100%.
+        /// </summary>
+        public double ZoomFactor { get; set; } = 1d;
   }
 }

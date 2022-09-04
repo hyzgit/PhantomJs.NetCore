@@ -15,16 +15,6 @@ namespace Sandbox
         <!DOCTYPE html>
         <html>
           <head>
-          <style>
-          /* Had to use this to fix the font sizing problem in linux. */
-          html {
-              height: 0;
-              transform-origin: 0 0;
-              -webkit-transform-origin: 0 0;
-              transform: scale(0.53);
-              -webkit-transform: scale(0.53);
-          }
-          </style>
           </head>
           <body>
               <h1>Hello World!</h1>
@@ -32,11 +22,32 @@ namespace Sandbox
           </body>
         </html>";
 
-      // Generate pdf from html and place in the current folder.
-      var pathOfGeneratedPdf = generator.GeneratePdf(htmlToConvert, currentDirectory);
+            htmlToConvert = File.ReadAllText("D:\\202208\\CSharp\\html2img2\\bin\\Debug\\net6.0\\测试html.txt");
+            htmlToConvert = "<html><meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\">" + htmlToConvert + "</html>";
+            // Generate pdf from html and place in the current folder.
+            PdfGeneratorParams ps = new PdfGeneratorParams();
+            ps.Fileformat = PhantomJs.NetCore.Enums.FileFormat.Png;
+            //ps.ConvertBase64 = true;
+            ps.DimensionUnit = PhantomJs.NetCore.Enums.DimensionUnits.Pixel;
+            ps.PageWidth = 512;
+            ps.PageHeight = 32;
 
-      Console.WriteLine("Pdf generated at: " + pathOfGeneratedPdf);
-      Console.WriteLine("Press any key to close...");
+            DateTime dt1, dt2;
+            TimeSpan ts;
+            dt1 = DateTime.Now;
+            var pathOfGeneratedPdf = generator.GeneratePdf(htmlToConvert, currentDirectory,ps);
+            dt2 = DateTime.Now;
+            ts = dt2.Subtract(dt1);
+            Console.WriteLine("new bmp t {0}", ts.TotalMilliseconds);
+            /*
+            dt1 = DateTime.Now;
+            pathOfGeneratedPdf = generator.GeneratePdf(htmlToConvert, currentDirectory, ps);
+            dt2 = DateTime.Now;
+            ts = dt2.Subtract(dt1);
+            Console.WriteLine("new bmp t {0}", ts.TotalMilliseconds);
+            */
+            Console.WriteLine("Pdf generated at: " + pathOfGeneratedPdf);
+            Console.WriteLine("Press any key to close...");
       Console.ReadKey();
     }
   }

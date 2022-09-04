@@ -8,4 +8,11 @@
     Portrait,
     Landscape
   }
+
+  public enum FileFormat
+  {
+        Png,
+        Jpeg,
+        Pdf
+  }
 }
