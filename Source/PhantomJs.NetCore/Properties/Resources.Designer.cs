@@ -59,45 +59,5 @@ namespace PhantomJs.NetCore.Properties {
                 resourceCulture = value;
             }
         }
-        
-        /// <summary>
-        ///   查找 System.Byte[] 类型的本地化资源。
-        /// </summary>
-        internal static byte[] common {
-            get {
-                object obj = ResourceManager.GetObject("common", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   查找 System.Byte[] 类型的本地化资源。
-        /// </summary>
-        internal static byte[] linux64_hyj_html2img {
-            get {
-                object obj = ResourceManager.GetObject("linux64_hyj_html2img", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   查找 System.Byte[] 类型的本地化资源。
-        /// </summary>
-        internal static byte[] osx_hyj_html2img {
-            get {
-                object obj = ResourceManager.GetObject("osx_hyj_html2img", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   查找 System.Byte[] 类型的本地化资源。
-        /// </summary>
-        internal static byte[] windows_hyj_html2img {
-            get {
-                object obj = ResourceManager.GetObject("windows_hyj_html2img", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
     }
 }

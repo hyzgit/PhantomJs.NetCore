@@ -122,7 +122,7 @@ namespace PhantomJs.NetCore
       {
         FileName = exePath,
         WorkingDirectory = PhantomRootFolder,
-        Arguments = $@"rasterize.js ""{inputFileName}"" ""{outputFilePath}"" ""{layout}"" {param.ZoomFactor}",
+        Arguments = $@"common.dll ""{inputFileName}"" ""{outputFilePath}"" ""{layout}"" {param.ZoomFactor}",
         // TODO: include orientation parameter ""{param.Orientation.GetValue()}"" ",
         UseShellExecute = false,
         CreateNoWindow = true

@@ -117,17 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="common" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\common.zip;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="linux64_hyj_html2img" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\linux64_hyj_html2img.zip;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="osx_hyj_html2img" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\osx_hyj_html2img.zip;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="windows_hyj_html2img" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\windows_hyj_html2img.zip;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
 </root>
